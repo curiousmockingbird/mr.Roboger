@@ -8,14 +8,16 @@ function beepBoop(event, input, results) {
   // target the paragraph to show results
   results = document.getElementById("results");
 
-  let numberToArray = [];
+  let numberToArray = [input];
 /*   let replace;*/
   for (let index = 0; index <= input; index += 1){
-    if (numberToArray[index] === 1) {
-/*       numberToArray.replace(index,"Beep!");*/
+    if (numberToArray.includes(1)) {
+
+       numberToArray.splice(index, 1,"Beep!");
+       numberToArray.push(index);
 /*       replace.push(index);*/  
-numberToArray.push(index); 
- }
+/* numberToArray.push(index); 
+ */ }
   /* numberToArray.push(index);*/
 
 
