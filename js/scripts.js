@@ -9,9 +9,18 @@ function beepBoop(event, input, results) {
   results = document.getElementById("results");
 
   let numberToArray = [];
+/*   let replace;*/
   for (let index = 0; index <= input; index += 1){
-      numberToArray.push(index);
-  };
+    if (numberToArray[index] === 1) {
+/*       numberToArray.replace(index,"Beep!");*/
+/*       replace.push(index);*/  
+numberToArray.push(index); 
+ }
+  /* numberToArray.push(index);*/
+
+
+
+};
  return results.append(numberToArray);
 }
 
