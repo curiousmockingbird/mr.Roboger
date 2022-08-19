@@ -1,44 +1,38 @@
 // BUSINESS LOGIC
-
+let results;
 function beepBoop(event, input, results) {
-  // prevent form from default behavior  
+  // prevent form from default behavior
   event.preventDefault();
   // get the user input
   input = parseInt(document.getElementById("userInputNumber").value);
-  // target the paragraph to show results
-  results = document.getElementById("results");
 
   let numberToArray = [input];
-/*   let replace;*/
-  for (let index = 0; index <= input; index += 1){
-    if (numberToArray.includes(1)) {
+  for (let index = 0; index <= input; index += 1) {
+    if (numberToArray.includes(2)){
+      console.log(numberToArray);
+    }
+  }
+    
+    for (let index = 0; index <= input; index += 1) {
+    numberToArray.push(index);
+  }
 
-       numberToArray.splice(index, 1,"Beep!");
-       numberToArray.push(index);
-/*       replace.push(index);*/  
-/* numberToArray.push(index); 
- */ }
-  /* numberToArray.push(index);*/
-
-
-
-};
- return results.append(numberToArray);
+return numberToArray;
 }
 
-
-
-
 // USER INTERFACE LOGIC
+let h1 = getElementById("h1Results");
+let results = document.createElement("p");
+h1.after(results);
 
 // function to clear form after submission
 function clearForm() {
   document.querySelector("form").reset();
-};
+}
 
 // function to unhide results after submission
 function unhideResults() {
-  document.getElementById("hiddenDiv").removeAttribute("class","hidden");
+  document.getElementById("hiddenDiv").removeAttribute("class", "hidden");
 }
 
 //eventListener for load event
@@ -50,6 +44,4 @@ window.addEventListener("load", function () {
   form.addEventListener("submit", clearForm);
   // eventListeners to unhide results
   form.addEventListener("submit", unhideResults);
-  });
-
- 
+});
