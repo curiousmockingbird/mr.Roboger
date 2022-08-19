@@ -2,6 +2,10 @@
   margin-bottom: 2%;
 }
 
+.hidden {
+  display: none;
+}
+
 .small {
   line-height: 80%;
   font-size: 0.5em;
