@@ -1,29 +1,25 @@
 // BUSINESS LOGIC
-let results;
 function beepBoop(event, input, results) {
   // prevent form from default behavior
   event.preventDefault();
   // get the user input
   input = parseInt(document.getElementById("userInputNumber").value);
+  // target paragraph to show results
+  results = document.getElementById("results");
 
-  let numberToArray = [input];
-  for (let index = 0; index <= input; index += 1) {
-    if (numberToArray.includes(2)){
-      console.log(numberToArray);
-    }
+  
+    if (!Number(input)){
+    return results.append("0")
   }
-    
-    for (let index = 0; index <= input; index += 1) {
+  
+  let numberToArray = [];
+  for (let index = 0; index <= input; index += 1){
     numberToArray.push(index);
-  }
-
-return numberToArray;
+  };
+  return results.append(numberToArray);
 }
 
 // USER INTERFACE LOGIC
-let h1 = getElementById("h1Results");
-let results = document.createElement("p");
-h1.after(results);
 
 // function to clear form after submission
 function clearForm() {
