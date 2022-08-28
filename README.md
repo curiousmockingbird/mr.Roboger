@@ -39,12 +39,11 @@ HTML, CSS, Bootstrap and JavaScript.
 1. Clone this repository to your desktop.
 2. Navigate to the top level of the directory.
 3. Open index.html in your browser.
-4. Input a number.
+4. Input a number and see what happens.
    
 
 ### Known bugs
-The branching for the program works. Need to improve funtuonality and add business logic to tests. 
-
+The branching for the program works well.
 ### License
 (MIT) https://en.wikipedia.org/wiki/MIT_License 
 
