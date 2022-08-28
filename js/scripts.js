@@ -1,43 +1,69 @@
 // BUSINESS LOGIC
-function beepBoop(event, input, results) {
+
+function beepBoop(inputtedNumber) {
+
+  let retVal = [];
+  if (!inputtedNumber) {
+    retVal = "Heyyy, you need to submit a number!!!";
+    return retVal;
+  } else {
+  for (let i = 0; i <= inputtedNumber; i++) {
+
+    if (i.toString().includes(3)) {
+      retVal.push(" Won't you be my neighbor?");
+    } else if (i.toString().includes(2)) {
+      retVal.push(" Boop!");
+    } else if (i.toString().includes(1)) {
+      retVal.push(" Beep!");
+    } else {
+      retVal.push( " " + i);
+    }
+  }
+  return retVal;
+}
+}
+
+
+
+// USER INTERFACE LOGIC
+
+// function to unhide results after submission
+function unhideResults(event) {
   // prevent form from default behavior
   event.preventDefault();
   // get the user input
-  input = parseInt(document.getElementById("userInputNumber").value);
-  // target paragraph to show results
-  results = document.getElementById("results");
+  const input = parseInt(document.getElementById("userInputNumber").value);
 
-  
-    if (!Number(input)){
-    return results.append("0")
-  }
-  
-  let numberToArray = [];
-  for (let index = 0; index <= input; index += 1){
-    numberToArray.push(index);
-  };
-  return results.append(numberToArray);
+  const div = document.getElementById("hiddenDiv");
+  const resultsSpan = document.querySelector("span.showResults");
+  const results = beepBoop(input);
+
+  resultsSpan.innerText = results;
+  div.removeAttribute("class", "hidden");
+
 }
-
-// USER INTERFACE LOGIC
 
 // function to clear form after submission
 function clearForm() {
   document.querySelector("form").reset();
 }
 
-// function to unhide results after submission
-function unhideResults() {
-  document.getElementById("hiddenDiv").removeAttribute("class", "hidden");
+ // reset results
+ function resetResults(){
+  const div = document.getElementById("hiddenDiv");
+  div.setAttribute("class", "hidden");
+
 }
 
 //eventListener for load event
 window.addEventListener("load", function () {
+
   let form = document.querySelector("form");
-  // eventListeners for submit event
-  form.addEventListener("submit", beepBoop);
-  // eventListeners to clear form
-  form.addEventListener("submit", clearForm);
-  // eventListeners to unhide results
+  let secondForm = this.document.getElementById("reset");
+  // eventListener to unhide results
   form.addEventListener("submit", unhideResults);
+  // eventListener to clear form
+  form.addEventListener("submit", clearForm);
+  secondForm.addEventListener("click", resetResults);
+
 });
